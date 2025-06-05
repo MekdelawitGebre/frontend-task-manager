@@ -33,3 +33,8 @@ This is a simpleTask Manager app built with React. It allows users to add, filte
 3. **Start the development server**
     ```bash
     npm run dev
+
+## Live Demo
+
+Check out the live app here:  
+🔗 [https://frontend-task-manager-eight.vercel.app](https://frontend-task-manager-eight.vercel.app)
