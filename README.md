@@ -31,7 +31,7 @@ This is a simpleTask Manager app built with React. It allows users to add, filte
     npm install
 
 3. **Start the development server**
-       ```bash
+    ```bash
     npm run dev
 
 
