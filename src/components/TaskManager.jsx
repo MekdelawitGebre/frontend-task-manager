@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 const initialTasks = [
+  { id: 3, title: "Internship", completed: false },
+  { id: 4, title: "Exam", completed: true },
   { id: 1, title: "Buy groceries", completed: false },
   { id: 2, title: "Read a book", completed: true },
-  {id: 3, title: "Internship", completed: false },
 ];
 
 export default function TaskManager() {
   const [tasks, setTasks] = useState(initialTasks);
   const [newTask, setNewTask] = useState("");
-  const [filter, setFilter] = useState("all"); 
+  const [filter, setFilter] = useState("all");
   const [error, setError] = useState("");
-
 
   const addTask = () => {
     if (newTask.trim() === "") {
@@ -40,18 +40,23 @@ export default function TaskManager() {
     );
   };
 
-
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-
-  const filteredTasks = tasks.filter((task) => {
-    if (filter === "all") return true;
-    if (filter === "completed") return task.completed;
-    if (filter === "pending") return !task.completed;
-    return true;
-  });
+  const filteredTasks = tasks
+    .filter((task) => {
+      if (filter === "all") return true;
+      if (filter === "completed") return task.completed;
+      if (filter === "pending") return !task.completed;
+      return true;
+    })
+    .sort((a, b) => {
+      if (filter === "all" || filter === "pending") {
+        return a.completed - b.completed; 
+      }
+      return 0; 
+    });
 
   return (
     <div className="container">
@@ -80,7 +85,6 @@ export default function TaskManager() {
         >
           All
         </button>
-
         <button
           className="filter-btn"
           style={{ opacity: filter === "completed" ? 1 : 0.6 }}
@@ -88,7 +92,6 @@ export default function TaskManager() {
         >
           Completed
         </button>
-
         <button
           className="filter-btn"
           style={{ opacity: filter === "pending" ? 1 : 0.6 }}
