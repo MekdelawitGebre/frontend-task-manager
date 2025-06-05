@@ -37,4 +37,4 @@ This is a simpleTask Manager app built with React. It allows users to add, filte
 ## Live Demo
 
 Check out the live app here:  
-🔗 [https://frontend-task-manager-eight.vercel.app](https://frontend-task-manager-eight.vercel.app)
+🔗 [Task Manager Demo](https://frontend-task-manager-eight.vercel.app)
